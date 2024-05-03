@@ -1,0 +1,731 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Italianno';
+    src: url('./Italianno-Regular.ttf') format('ttf'),
+}
+
+@font-face {
+    font-family: 'Gabriela';
+    src: url('./Gabriela-Regular.ttf') format('ttf'),
+}
+
+/*************************************************************
+Travaille sur la bar de nav + menu burger + responsive
+**************************************************************/
+
+header {
+    height: 100vh;
+    width: auto;
+    background-image: url(./images/degrade-couleur.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-family: 'Gabriela';
+    color: rgb(70, 2, 87);
+    justify-content: space-evenly;
+    padding: 15px 25px;
+    background-color: rgba(222, 28, 253, 0.3);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.logo span {
+    font-family: 'Italianno';
+    font-size: 2.7em;
+    margin-left: 10px;
+    font-weight: 400;
+    color: rgb(70, 2, 87);
+}
+
+.logo span:hover {
+    color: white;
+}
+
+.hamburger {
+    display: none;
+}
+
+.navlinks-container a {
+    margin: 0 10px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    color: rgb(70, 2, 87);
+    position: relative;
+}
+
+.navlinks-container a:hover {
+    color: white;
+}
+
+.navlinks-container a::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    width: 100%;
+    height: 1px;
+    transform: scale(0);
+    transform-origin: left;
+    background: rgb(70, 2, 87);
+    transition: transform 0.3s ease-out;
+}
+
+.formulaire {
+    display: flex;
+    gap: 20px;
+    border: 20px solid white;
+    justify-content: center;
+}
+
+form {
+    padding: 20px;
+    background-color: #f5bafe;
+    border-radius: 10px;
+    width: 50%;
+    border: 2px solid rgb(70, 2, 87);
+    height: auto;
+    max-width: 550px;
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 200px;
+}
+
+.maps {
+    width: 50%;
+    max-width: 550px;
+}
+
+textarea {
+    width: 100%;
+}
+
+
+/************************* Le responsive ************************/
+@media (max-width: 1000px) {
+    nav {
+        padding: 15px 20px;
+        position: fixed relative;
+    }
+
+    .logo {
+        order: 2;
+        margin: 0 auto;
+    }
+
+    .logo span {
+        font-size: 22px;
+    }
+
+    .main-navlinks {
+        order: 1;
+        width: auto;
+    }
+
+    /* hamburger */
+    .hamburger {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        border: none;
+        display: flex;
+        background-color: rgba(223, 28, 253, 0.11);
+        align-items: center;
+        position: relative;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: #333;
+        position: absolute;
+        pointer-events: none;
+        transition: opacity 0.3s 0.15s ease-out;
+    }
+
+    .hamburger span:nth-child(1),
+    .hamburger span:nth-child(3) {
+        transition: transform 0.3s ease-out;
+    }
+
+    .hamburger span:nth-child(1) {
+        transform: translateY(7px);
+    }
+
+    .hamburger span:nth-child(3) {
+        transform: translateY(-7px);
+    }
+
+    .hamburger.open span:nth-child(1) {
+        transform: translate(0) rotate(135deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+        opacity: 0;
+        transition: opacity 0s ease-out;
+    }
+
+    .hamburger.open span:nth-child(3) {
+        transform: translate(0) rotate(-135deg);
+    }
+
+    .navlinks-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        background: rgba(222, 28, 253, 0.3);
+        top: 100%;
+        left: 0;
+        transform: translate(-100%);
+        height: 100vh;
+        padding: 15px 50px 15px 20px;
+    }
+
+    .open {
+        transform: translate(0%);
+    }
+
+    .navlinks-container a {
+        font-size: 18px;
+        margin: 10px 0px;
+    }
+}
+
+@media (max-width: 500px) {
+    .logo span {
+        font-size: 20px;
+    }
+}
+
+/****************************************
+Travail sur la section class= butterfly
+****************************************/
+
+section.butterfly {
+    display: flex;
+}
+
+aside.icon {
+    width: 20vw;
+    height: 100vh;
+    padding-left: 13%;
+    padding-top: 8%;
+}
+
+aside.icon img {
+    width: auto;
+    height: 18%;
+    display: flex;
+}
+
+article.prénom {
+    width: 80vw;
+    height: 100vh;
+}
+
+.premiere_ligne {
+    padding-top: 15%;
+    font-family: 'Gabriela';
+    font-style: italic;
+    font-size: 2.8em;
+    color: rgb(70, 2, 87);
+    text-shadow: 2px 4px 2px rgba(0, 0, 0, 0.25);
+}
+
+.deuxieme_ligne {
+    margin-left: 12%;
+    font-family: 'Gabriela';
+    font-style: italic;
+    font-size: 2.8em;
+    color: rgb(70, 2, 87);
+    text-shadow: 2px 4px 2px rgba(0, 0, 0, 0.25);
+}
+
+.troisieme_ligne {
+    margin-left: 45%;
+    font-family: 'Gabriela';
+    font-style: italic;
+    font-size: 2.8em;
+    color: rgb(70, 2, 87);
+    text-shadow: 2px 4px 2px rgba(0, 0, 0, 0.25);
+}
+
+/*******************************************
+Travail sur la section= présentation
+*******************************************/
+
+section.présentation {
+    display: flex;
+}
+
+aside.portrait {
+    width: 35vw;
+    height: 100vh;
+}
+
+aside.portrait img {
+    width: 68%;
+    margin-left: 35%;
+    margin-top: 30%;
+}
+
+article.texte {
+    width: 65vw;
+    height: 100vh;
+    font-size: 1.1em;
+    font-family: 'Gabriela';
+    color: rgb(70, 2, 87);
+    text-align: justify;
+}
+
+article.texte p {
+    margin-top: 22%;
+    margin-left: 4%;
+    width: 60%;
+}
+
+article.texte ul {
+    margin-left: 6%;
+    width: 60%;
+}
+
+/**********************************************
+Travail sur la section= réalisations
+**********************************************/
+
+section.réalisations {
+    display: flex;
+}
+
+h1.titre {
+    font-family: 'Gabriela';
+    color: rgb(70, 2, 87);
+    font-size: 1.4em;
+    margin-bottom:20px;
+    margin:20px auto;
+}
+
+aside.vignette {
+    width: 35vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+aside div.svignettes{
+    width:15vw;
+    height:400px;
+    display:flex;
+    flex-wrap: wrap;
+    margin:auto;
+}
+
+div.cadre {
+   width:6vw;
+   margin:1px;
+   margin:auto;
+}
+
+div.cadre img {
+   width:100%;
+   opacity: 0.6;
+}
+
+div.cadre img:hover{
+    opacity: 1;
+}
+
+article.photo {
+    width: 65vw;
+    height: 100vh;
+    display:flex;  
+}
+
+div.photos{
+    margin:auto;
+    width:80%;
+    height:78vh;
+    overflow: hidden;
+}
+
+article.photo img {
+    width:100%;
+    position: solid relative;
+}
+
+/*********************************************
+Travail sur la section= qualités
+********************************************/
+
+section.qualités {
+    display: flex;
+}
+
+aside.savoir {
+    width: 60vw;
+    height: 50vh;
+    padding-top: 10%;
+    padding-left: 10%;
+}
+
+ul.liste {
+    padding-left: 30%;
+    font-size: 1em;
+    font-family: 'Gabriela';
+    color: rgb(70, 2, 87);
+}
+
+article.image-café {
+    width: 40vw;
+    height: 50vh;
+    display: flex;
+}
+
+img.café {
+    height: 60%;
+    margin-top: 34%;
+}
+
+/*****************************************
+Travail sur la section= compétences
+*****************************************/
+
+section.compétences {
+    display: flex;
+    margin-bottom: 60px;
+}
+
+aside.connaissances {
+    width: 40vw;
+    padding-top: 3%;
+    padding-left: 10%;
+}
+
+ul.liste1 {
+    padding-left: 70%;
+    font-size: 1em;
+    font-family: 'Gabriela';
+    color: rgb(70, 2, 87);
+}
+
+article.liste2 {
+    width: 60vw;
+}
+
+ul.liste2 {
+    padding-left: 5%;
+    padding-top: 15%;
+    font-size: 1em;
+    font-family: 'Gabriela';
+    color: rgb(70, 2, 87);
+}
+
+/*******************************************
+Travail sur la section= contacter
+*******************************************/
+
+section.contacter {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+h1.title {
+    font-family: 'Gabriela';
+    color: rgb(70, 2, 87);
+    font-size: 1.4em;
+    margin-top: 25%;
+}
+
+.ville {
+    font-size: 1em;
+    color: rgb(70, 2, 87);
+    font-family: 'Gabriela';
+    margin-top: 20%;
+}
+
+.numéro {
+    font-size: 1em;
+    color: rgb(70, 2, 87);
+    font-family: 'Gabriela';
+}
+
+.linkedin {
+    font-size: 1em;
+    color: rgb(70, 2, 87);
+    font-family: 'Gabriela';
+    text-decoration: none;
+}
+
+fieldset {
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    margin-top: 28%;
+    border-radius: 10px;
+    border-color: rgb(70, 2, 87);
+    font-size: 1.1em;
+    color: rgb(70, 2, 87);
+    font-family: 'Gabriela';
+    background-color: rgba(222, 28, 253, 0.3);
+}
+
+label {
+    width: 70px;
+    display: inline-block;
+}
+
+select {
+    width: 200px;
+    font-size: 0.9em;
+}
+
+.input_form {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.form_container {
+    display: flex;
+    flex-direction: column;
+}
+
+textarea {
+    font-size: 0.9em;
+    resize: none;
+    height: 90px;
+}
+
+.bouton {
+    width: 520px;
+    text-align: center;
+}
+
+input[type="submit"] {
+    font-size: 0.9em;
+    color: rgb(70, 2, 87);
+    font-family: 'Gabriela';
+    width: 80px;
+    border-radius: 5px;
+    padding: 5px;
+    border: none;
+}
+
+/******************************************
+Travail sur le footer
+******************************************/
+
+footer {
+    height: 10vh;
+    background-color: rgba(222, 28, 253, 0.3);
+}
+
+.production {
+    font-size: 0.8em;
+    color: rgb(70, 2, 87);
+    font-family: 'Gabriela';
+    text-align: center;
+}
+
+/************************************************************************
+media query <1000px
+************************************************************************/
+
+@media screen and (max-width:1000px) {
+    section {
+        flex-direction: column;
+    }
+
+    aside.icon {
+        display: none;
+    }
+
+    /*************section class= butterfly******************/
+
+    aside.icon {
+        width: 20vw;
+        height: 100vh;
+    }
+
+    aside.icon img {
+       
+        height: 5%;
+        display:inline-block
+    }
+
+    article.prénom {
+        width: 100vw;
+    }
+
+    .premiere_ligne {
+        text-align: center;
+        margin-left: 0%;
+    }
+
+    .deuxieme_ligne {
+        text-align: center;
+        margin-left: 0%;
+    }
+
+    .troisieme_ligne {
+        text-align: center;
+        margin-left: 0%;
+    }
+
+    /****************section= présentation****************/
+
+    aside.portrait {
+        width: 100vw;
+        height: 50vh;
+    }
+
+    aside.portrait img {
+        width: 30%;
+        margin-top: 2%;
+        margin-left: 25%;
+    }
+
+    article.texte {
+        width: 100vw;
+        height: 50vh;
+        font-size: 1em;
+    }
+
+    article.texte p {
+        margin-top: 5%;
+        margin-left: 5%;
+        align-items: flex-start;
+    }
+
+    article.texte ul {
+        margin-left: 10%;
+    }
+
+    /**********************section= réalisations******************/
+
+    h1.titre {
+        font-size: 1.1em;
+    }
+
+    aside.vignette {
+        width: 100vw;
+        height: 30vh;
+    }
+
+    aside div.svignettes{
+        height: 80px;
+    }
+
+    div.cadre {
+        width: 20%;
+        margin-left: 2%;
+        display: flex;
+    }
+
+    article.photo {
+        width: 100vw;
+        height: 70vh;
+    }
+
+    div.photos{
+        width: 100%;
+        height: 98%;
+    }
+
+    article.photo img {
+        width: 70%;
+        margin-top: 1%;
+        margin-left: 15%;
+    }
+
+    /************************section= qualités*****************/
+
+    aside.savoir {
+        width: 100vw;
+        padding-top: 6%;
+    }
+
+    ul.liste {
+        padding-left: 20%;
+    }
+
+    article.image-café {
+        display: none;
+    }
+
+    /***********************section= compétences*******************/
+
+    aside.connaissances {
+        width: 100vw;
+    }
+
+    ul.liste1 {
+        padding-left: 28%;
+    }
+
+    article.liste2 {
+        width: 100vw;
+    }
+
+    ul.liste2 {
+        padding-left: 35%;
+        padding-top: 0%;
+    }
+
+    /*************************section= contacter***************/
+   
+    h1.title{
+        margin-top: 0;
+    }
+   
+    .ville{
+        margin-top: 2%;
+    }
+
+    .maps {
+        width: 100%;
+    }
+
+    .formulaire {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    fieldset {
+        width: 20px;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    iframe {
+        width: 100%;
+    }
+
+    
+
+}
